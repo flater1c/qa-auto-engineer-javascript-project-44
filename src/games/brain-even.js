@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import greeting from '../bin/cli.js';
+import { greeting, answerCheck, congratulations, correctMessage, incorrectMessage } from '../index.js';
 
 const parityCheck = (number) => number % 2 === 0;
 
@@ -19,15 +19,15 @@ const evenGame = () => {
     }
     console.log(`Answer "yes" if the number is even, otherwise answer "no".\n Question: ${number}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer === correctAnswer) {
-      console.log('Correct!');
+    if (answerCheck(userAnswer, correctAnswer)) {
+      correctMessage();
       i += 1;
     } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\n Let's try again, ${userName}!`);
+      incorrectMessage(userAnswer, correctAnswer, userName);
       return;
     }
   }
-  console.log(`Congratulations ${userName}!`);
+  congratulations(userName);
 };
 
 export default evenGame;
