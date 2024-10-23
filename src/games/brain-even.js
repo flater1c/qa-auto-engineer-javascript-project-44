@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { greeting, answerCheck, congratulations, correctMessage, incorrectMessage } from '../index.js';
+import { greeting, answerCheck, congratulations, correctMessage, incorrectMessage, numberGeneration } from '../index.js';
 
 const parityCheck = (number) => number % 2 === 0;
 
@@ -7,10 +7,9 @@ const evenGame = () => {
   const userName = greeting();
   let i = 0;
   while (i < 3) {
-    const number = Math.floor(Math.random() * 100);
-    const parityCheckResult = parityCheck(number);
+    const number = numberGeneration();
     let correctAnswer;
-    if (parityCheckResult) {
+    if (parityCheck(number)) {
       correctAnswer = 'yes';
     } else {
       correctAnswer = 'no';

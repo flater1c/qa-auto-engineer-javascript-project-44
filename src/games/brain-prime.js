@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { greeting, answerCheck, congratulations, correctMessage, incorrectMessage } from '../index.js';
+import { greeting, answerCheck, congratulations, correctMessage, incorrectMessage, numberGeneration } from '../index.js';
 
 const primeCheck = (number) => {
   let dividerCounter = 0;
@@ -20,10 +20,9 @@ const primeGame = () => {
   const userName = greeting();
   let i = 0;
   while (i < 3) {
-    const number = Math.floor(Math.random() * 100);
-    const primeCheckResult = primeCheck(number);
+    const number = numberGeneration();
     let correctAnswer;
-    if (primeCheckResult) {
+    if (primeCheck(number)) {
       correctAnswer = 'yes';
     } else {
       correctAnswer = 'no';

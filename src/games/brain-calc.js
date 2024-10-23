@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greeting, congratulations, answerCheck, correctMessage, incorrectMessage } from '../index.js';
+import { greeting, congratulations, answerCheck, correctMessage, incorrectMessage, numberGeneration } from '../index.js';
 
 const randomOperator = () => {
   const operators = ['+', '-', '*'];
@@ -13,8 +13,8 @@ const calcGame = () => {
   const userName = greeting();
   let i = 0;
   while (i < 3) {
-    const firstNumber = Math.floor(Math.random() * 100);
-    const secondNumber = Math.floor(Math.random() * 100);
+    const firstNumber = numberGeneration();
+    const secondNumber = numberGeneration();
     let result;
     const operator = randomOperator();
     switch (operator) {
