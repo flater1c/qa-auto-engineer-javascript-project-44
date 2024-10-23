@@ -8,7 +8,7 @@ export const greeting = () => {
 };
 
 export const congratulations = (username) => {
-  console.log(`Congratulations ${username}!`);
+  console.log(`Congratulations, ${username}!`);
 };
 
 export const correctMessage = () => {
