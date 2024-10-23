@@ -1,4 +1,7 @@
-import { greeting, congratulations, answerCheck, correctMessage, incorrectMessage, numberGeneration, intAnswer } from '../index.js';
+import {
+  greeting, congratulations, answerCheck, correctMessage, incorrectMessage,
+  numberGeneration, intAnswer,
+} from '../index.js';
 
 const gcd = (firstNumber, secondNumber) => {
   if (secondNumber !== 0) {

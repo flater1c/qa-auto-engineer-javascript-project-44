@@ -1,4 +1,7 @@
-import { greeting, congratulations, answerCheck, correctMessage, incorrectMessage, numberGeneration, intAnswer } from '../index.js';
+import {
+  greeting, congratulations, answerCheck, correctMessage, incorrectMessage,
+  numberGeneration, intAnswer,
+} from '../index.js';
 
 const randomOperator = () => {
   const operators = ['+', '-', '*'];

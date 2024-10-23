@@ -1,4 +1,7 @@
-import { greeting, answerCheck, congratulations, correctMessage, incorrectMessage, numberGeneration, stringAnswer } from '../index.js';
+import {
+  greeting, answerCheck, congratulations, correctMessage, incorrectMessage,
+  numberGeneration, stringAnswer,
+} from '../index.js';
 
 const primeCheck = (number) => {
   let dividerCounter = 0;

@@ -1,4 +1,7 @@
-import { greeting, congratulations, answerCheck, correctMessage, incorrectMessage, intAnswer } from '../index.js';
+import {
+  greeting, congratulations, answerCheck, correctMessage, incorrectMessage,
+  intAnswer,
+} from '../index.js';
 
 const progressionGeneration = () => {
   const progressionIncrease = Math.floor(Math.random() * 10);
