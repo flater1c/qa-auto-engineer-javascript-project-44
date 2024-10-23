@@ -18,7 +18,7 @@ const progressionGame = () => {
     const index = Math.floor(Math.random() * 10);
     const result = progression[index];
     progression[index] = '..';
-    console.log(`What number is missing in the progression?\n Question: ${progression}`);
+    console.log(`What number is missing in the progression?\n Question: ${progression.join(' ')}`);
     const userAnswer = intAnswer();
     if (answerCheck(userAnswer, result)) {
       correctMessage();
