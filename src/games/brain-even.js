@@ -5,17 +5,22 @@ import {
 
 const parityCheck = (number) => number % 2 === 0;
 
+const correctAnswerAssign = (number) => {
+  let correctAnswer;
+  if (parityCheck(number)) {
+    correctAnswer = 'yes';
+  } else {
+    correctAnswer = 'no';
+  }
+  return correctAnswer;
+};
+
 const evenGame = () => {
   const userName = greeting();
   let i = 0;
   while (i < 3) {
     const number = numberGeneration();
-    let correctAnswer;
-    if (parityCheck(number)) {
-      correctAnswer = 'yes';
-    } else {
-      correctAnswer = 'no';
-    }
+    const correctAnswer = correctAnswerAssign(number);
     console.log(`Answer "yes" if the number is even, otherwise answer "no".\n Question: ${number}`);
     const userAnswer = stringAnswer();
     if (answerCheck(userAnswer, correctAnswer)) {

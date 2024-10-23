@@ -9,27 +9,32 @@ const randomOperator = () => {
   return operators[randomIndex];
 };
 
+const correctAnswerAssign = (firstNumber, secondNumber, operator) => {
+  let result;
+  switch (operator) {
+    case '+':
+      result = firstNumber + secondNumber;
+      break;
+    case '-':
+      result = firstNumber - secondNumber;
+      break;
+    case '*':
+      result = firstNumber * secondNumber;
+      break;
+    default:
+      result = null;
+  }
+  return result;
+};
+
 const calcGame = () => {
   const userName = greeting();
   let i = 0;
   while (i < 3) {
     const firstNumber = numberGeneration();
     const secondNumber = numberGeneration();
-    let result;
     const operator = randomOperator();
-    switch (operator) {
-      case '+':
-        result = firstNumber + secondNumber;
-        break;
-      case '-':
-        result = firstNumber - secondNumber;
-        break;
-      case '*':
-        result = firstNumber * secondNumber;
-        break;
-      default:
-        result = null;
-    }
+    const result = correctAnswerAssign(firstNumber, secondNumber, operator);
     console.log(`What is the result of the expression?\n Question: ${firstNumber} ${operator} ${secondNumber}`);
     const userAnswer = intAnswer();
     if (answerCheck(userAnswer, result)) {

@@ -18,17 +18,22 @@ const primeCheck = (number) => {
   return dividerCounter === 0;
 };
 
+const correctAnswerAssign = (number) => {
+  let correctAnswer;
+  if (primeCheck(number)) {
+    correctAnswer = 'yes';
+  } else {
+    correctAnswer = 'no';
+  }
+  return correctAnswer;
+};
+
 const primeGame = () => {
   const userName = greeting();
   let i = 0;
   while (i < 3) {
     const number = numberGeneration();
-    let correctAnswer;
-    if (primeCheck(number)) {
-      correctAnswer = 'yes';
-    } else {
-      correctAnswer = 'no';
-    }
+    const correctAnswer = correctAnswerAssign(number);
     console.log(`Answer "yes" if given number is prime. Otherwise answer "no".\n Question: ${number}`);
     const userAnswer = stringAnswer();
     if (answerCheck(userAnswer, correctAnswer)) {
