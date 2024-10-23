@@ -40,7 +40,7 @@ export const parityCheck = (number) => {
 export const primeCheck = (number) => {
   let correctAnswer;
   let dividerCounter = 0;
-  if (number === 1) {
+  if (number === 1 || number === 0) {
     correctAnswer = 'no';
   } else {
     let i;
