@@ -5,3 +5,4 @@
 <a href="https://asciinema.org/a/j1wyAIQ3mPAZbFji0vGcFo2Lp">Brain calc asciinema</a><br>
 <a href="https://asciinema.org/a/AAu12DdHgew9a6JBNRkDScuza">Brain gcd asciinema</a><br>
 <a href="https://asciinema.org/a/27D6aB0kGkOZsV7FgOFgcIJWy">Brain progression asciinema</a><br>
+<a href="https://asciinema.org/a/2aGf9gvGHzxOIrmS7reolRDKX">Brain prime asciinema</a><br>
