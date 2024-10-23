@@ -22,3 +22,7 @@ export const incorrectMessage = (userAnswer, correctAnswer, userName) => {
 export const answerCheck = (userAnswer, correctAnswer) => (userAnswer === correctAnswer);
 
 export const numberGeneration = () => Math.floor(Math.random() * 100);
+
+export const intAnswer = () => readlineSync.questionInt('Your answer: ');
+
+export const stringAnswer = () => readlineSync.question('Your answer: ');

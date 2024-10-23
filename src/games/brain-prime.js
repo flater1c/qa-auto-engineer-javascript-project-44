@@ -1,5 +1,4 @@
-import readlineSync from 'readline-sync';
-import { greeting, answerCheck, congratulations, correctMessage, incorrectMessage, numberGeneration } from '../index.js';
+import { greeting, answerCheck, congratulations, correctMessage, incorrectMessage, numberGeneration, stringAnswer } from '../index.js';
 
 const primeCheck = (number) => {
   let dividerCounter = 0;
@@ -28,7 +27,7 @@ const primeGame = () => {
       correctAnswer = 'no';
     }
     console.log(`Answer "yes" if given number is prime. Otherwise answer "no".\n Question: ${number}`);
-    const userAnswer = readlineSync.question('Your answer: ');
+    const userAnswer = stringAnswer();
     if (answerCheck(userAnswer, correctAnswer)) {
       correctMessage();
       i += 1;

@@ -1,7 +1,4 @@
-#!/usr/bin/env node
-
-import readlineSync from 'readline-sync';
-import { greeting, congratulations, answerCheck, correctMessage, incorrectMessage, numberGeneration } from '../index.js';
+import { greeting, congratulations, answerCheck, correctMessage, incorrectMessage, numberGeneration, intAnswer } from '../index.js';
 
 const randomOperator = () => {
   const operators = ['+', '-', '*'];
@@ -31,7 +28,7 @@ const calcGame = () => {
         result = null;
     }
     console.log(`What is the result of the expression?\n Question: ${firstNumber} ${operator} ${secondNumber}`);
-    const userAnswer = readlineSync.questionInt('Your answer: ');
+    const userAnswer = intAnswer();
     if (answerCheck(userAnswer, result)) {
       correctMessage();
       i += 1;
