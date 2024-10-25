@@ -1,34 +1,19 @@
-import {
-  greeting, congratulations, answerCheck, correctMessage, incorrectMessage,
-  numberGeneration, intAnswer,
-} from '../index.js';
+import { numberGenerate } from '../index.js';
 
-const gcd = (firstNumber, secondNumber) => {
-  if (secondNumber !== 0) {
-    const remainder = firstNumber % secondNumber;
-    return gcd(secondNumber, remainder);
+export const gameQuestion = 'Find the greatest common divisor of given numbers.';
+
+const gcd = (first, second) => {
+  if (second !== 0) {
+    const remainder = first % second;
+    return gcd(second, remainder);
   }
-  return firstNumber;
+  return first;
 };
 
-const gcdGame = () => {
-  const userName = greeting();
-  let i = 0;
-  while (i < 3) {
-    const firstNumber = numberGeneration();
-    const secondNumber = numberGeneration();
-    const result = gcd(firstNumber, secondNumber);
-    console.log(`Find the greatest common divisor of given numbers.\n Question: ${firstNumber} ${secondNumber}`);
-    const userAnswer = intAnswer();
-    if (answerCheck(userAnswer, result)) {
-      correctMessage();
-      i += 1;
-    } else {
-      incorrectMessage(userAnswer, result, userName);
-      return;
-    }
-  }
-  congratulations(userName);
+export const gcdGame = () => {
+  const first = numberGenerate();
+  const second = numberGenerate();
+  const taskQuestion = `${first} ${second}`;
+  const result = gcd(first, second).toString();
+  return [taskQuestion, result];
 };
-
-export default gcdGame;
