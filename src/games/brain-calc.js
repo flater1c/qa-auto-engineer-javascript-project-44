@@ -1,4 +1,4 @@
-import { numberGeneration } from '../index.js';
+import { numberGenerate } from '../index.js';
 
 export const gameQuestion = 'What is the result of the expression?';
 
@@ -27,8 +27,8 @@ const correctAnswerAssign = (firstNumber, secondNumber, operator) => {
 };
 
 export const calcGame = () => {
-  const firstNumber = numberGeneration();
-  const secondNumber = numberGeneration();
+  const firstNumber = numberGenerate();
+  const secondNumber = numberGenerate();
   const operator = randomOperator();
   const taskQuestion = `${firstNumber} ${operator} ${secondNumber}`;
   const result = correctAnswerAssign(firstNumber, secondNumber, operator).toString();

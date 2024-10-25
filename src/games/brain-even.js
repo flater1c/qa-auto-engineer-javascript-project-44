@@ -1,4 +1,4 @@
-import { numberGeneration } from '../index.js';
+import { numberGenerate } from '../index.js';
 
 export const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -13,7 +13,7 @@ const parityCheck = (number) => {
 };
 
 export const evenGame = () => {
-  const taskQuestion = numberGeneration();
+  const taskQuestion = numberGenerate();
   const result = parityCheck(taskQuestion);
   return [taskQuestion, result];
 };

@@ -1,4 +1,4 @@
-import { numberGeneration } from '../index.js';
+import { numberGenerate } from '../index.js';
 
 export const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -24,7 +24,7 @@ export const primeCheck = (number) => {
 };
 
 export const primeGame = () => {
-  const taskQuestion = numberGeneration();
+  const taskQuestion = numberGenerate();
   const result = primeCheck(taskQuestion);
   return [taskQuestion, result];
 };
