@@ -1,7 +1,4 @@
-import {
-  greeting, congratulations, answerCheck, correctMessage, incorrectMessage,
-  intAnswer,
-} from '../index.js';
+export const gameQuestion = 'What number is missing in the progression?';
 
 const progressionGeneration = () => {
   const progressionIncrease = Math.floor(Math.random() * 10);
@@ -13,25 +10,11 @@ const progressionGeneration = () => {
   return progression;
 };
 
-const progressionGame = () => {
-  const userName = greeting();
-  let i = 0;
-  while (i < 3) {
-    const progression = progressionGeneration();
-    const index = Math.floor(Math.random() * 10);
-    const result = progression[index];
-    progression[index] = '..';
-    console.log(`What number is missing in the progression?\n Question: ${progression.join(' ')}`);
-    const userAnswer = intAnswer();
-    if (answerCheck(userAnswer, result)) {
-      correctMessage();
-      i += 1;
-    } else {
-      incorrectMessage(userAnswer, result, userName);
-      return;
-    }
-  }
-  congratulations(userName);
+export const progressionGame = () => {
+  const progression = progressionGeneration();
+  const index = Math.floor(Math.random() * 10);
+  const result = progression[index].toString();
+  progression[index] = '..';
+  const taskQuestion = `${progression.join(' ')}`;
+  return [taskQuestion, result];
 };
-
-export default progressionGame;

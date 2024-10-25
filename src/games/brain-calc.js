@@ -1,7 +1,6 @@
-import {
-  greeting, congratulations, answerCheck, correctMessage, incorrectMessage,
-  numberGeneration, intAnswer,
-} from '../index.js';
+import { numberGeneration } from '../index.js';
+
+export const gameQuestion = 'What is the result of the expression?';
 
 const randomOperator = () => {
   const operators = ['+', '-', '*'];
@@ -27,25 +26,11 @@ const correctAnswerAssign = (firstNumber, secondNumber, operator) => {
   return result;
 };
 
-const calcGame = () => {
-  const userName = greeting();
-  let i = 0;
-  while (i < 3) {
-    const firstNumber = numberGeneration();
-    const secondNumber = numberGeneration();
-    const operator = randomOperator();
-    const result = correctAnswerAssign(firstNumber, secondNumber, operator);
-    console.log(`What is the result of the expression?\n Question: ${firstNumber} ${operator} ${secondNumber}`);
-    const userAnswer = intAnswer();
-    if (answerCheck(userAnswer, result)) {
-      correctMessage();
-      i += 1;
-    } else {
-      incorrectMessage(userAnswer, result, userName);
-      return;
-    }
-  }
-  congratulations(userName);
+export const calcGame = () => {
+  const firstNumber = numberGeneration();
+  const secondNumber = numberGeneration();
+  const operator = randomOperator();
+  const taskQuestion = `${firstNumber} ${operator} ${secondNumber}`;
+  const result = correctAnswerAssign(firstNumber, secondNumber, operator).toString();
+  return [taskQuestion, result];
 };
-
-export default calcGame;
