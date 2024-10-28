@@ -1,6 +1,8 @@
-export const gameQuestion = 'What number is missing in the progression?';
+import runEngine from '../index.js';
 
-const progressionGeneration = () => {
+export const gameDescription = 'What number is missing in the progression?';
+
+const generateProgression = () => {
   const progressionIncrease = Math.floor(Math.random() * 10);
   const progressionFirstNumber = Math.floor(Math.random() * 10);
   const progression = [];
@@ -10,11 +12,13 @@ const progressionGeneration = () => {
   return progression;
 };
 
-export const progressionGame = () => {
-  const progression = progressionGeneration();
+export const generateRound = () => {
+  const progression = generateProgression();
   const index = Math.floor(Math.random() * 10);
-  const result = progression[index].toString();
+  const answer = progression[index].toString();
   progression[index] = '..';
-  const taskQuestion = `${progression.join(' ')}`;
-  return [taskQuestion, result];
+  const question = `${progression.join(' ')}`;
+  return [question, answer];
 };
+
+export default () => runEngine(gameDescription, generateRound);

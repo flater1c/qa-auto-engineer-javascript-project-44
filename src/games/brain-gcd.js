@@ -1,19 +1,22 @@
-import { numberGenerate } from '../index.js';
+import generateNumber from '../utils.js';
+import runEngine from '../index.js';
 
-export const gameQuestion = 'Find the greatest common divisor of given numbers.';
+export const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-const gcd = (first, second) => {
+const findGcd = (first, second) => {
   if (second !== 0) {
     const remainder = first % second;
-    return gcd(second, remainder);
+    return findGcd(second, remainder);
   }
   return first;
 };
 
-export const gcdGame = () => {
-  const first = numberGenerate();
-  const second = numberGenerate();
-  const taskQuestion = `${first} ${second}`;
-  const result = gcd(first, second).toString();
-  return [taskQuestion, result];
+export const generateRound = () => {
+  const first = generateNumber();
+  const second = generateNumber();
+  const question = `${first} ${second}`;
+  const answer = findGcd(first, second).toString();
+  return [question, answer];
 };
+
+export default () => runEngine(gameDescription, generateRound);
