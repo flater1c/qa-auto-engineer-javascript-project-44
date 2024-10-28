@@ -1,6 +1,7 @@
-import { numberGenerate } from '../index.js';
+import generateNumber from '../utils.js';
+import runEngine from '../index.js';
 
-export const gameQuestion = 'What is the result of the expression?';
+export const gameDescription = 'What is the result of the expression?';
 
 const randomOperator = () => {
   const operators = ['+', '-', '*'];
@@ -8,17 +9,17 @@ const randomOperator = () => {
   return operators[randomIndex];
 };
 
-const correctAnswerAssign = (firstNumber, secondNumber, operator) => {
+const generateResult = (first, second, operator) => {
   let result;
   switch (operator) {
     case '+':
-      result = firstNumber + secondNumber;
+      result = first + second;
       break;
     case '-':
-      result = firstNumber - secondNumber;
+      result = first - second;
       break;
     case '*':
-      result = firstNumber * secondNumber;
+      result = first * second;
       break;
     default:
       result = null;
@@ -26,11 +27,13 @@ const correctAnswerAssign = (firstNumber, secondNumber, operator) => {
   return result;
 };
 
-export const calcGame = () => {
-  const firstNumber = numberGenerate();
-  const secondNumber = numberGenerate();
+export const generateRound = () => {
+  const first = generateNumber();
+  const second = generateNumber();
   const operator = randomOperator();
-  const taskQuestion = `${firstNumber} ${operator} ${secondNumber}`;
-  const result = correctAnswerAssign(firstNumber, secondNumber, operator).toString();
-  return [taskQuestion, result];
+  const question = `${first} ${operator} ${second}`;
+  const answer = generateResult(first, second, operator).toString();
+  return [question, answer];
 };
+
+export default () => runEngine(gameDescription, generateRound);

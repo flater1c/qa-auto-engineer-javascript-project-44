@@ -1,30 +1,32 @@
-import { numberGenerate } from '../index.js';
+import generateNumber from '../utils.js';
+import runEngine from '../index.js';
 
-export const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+export const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-export const primeCheck = (number) => {
-  let correctAnswer;
+export const isPrime = (number) => {
+  let result;
   let dividerCounter = 0;
   if (number === 1 || number === 0) {
-    correctAnswer = 'no';
+    result = 'no';
   } else {
-    let i;
-    for (i = 2; i <= Math.round(Math.sqrt(number)); i += 1) {
+    for (let i = 2; i <= Math.round(Math.sqrt(number)); i += 1) {
       if (number % i === 0) {
         dividerCounter += 1;
       }
     }
     if (dividerCounter === 0) {
-      correctAnswer = 'yes';
+      result = 'yes';
     } else {
-      correctAnswer = 'no';
+      result = 'no';
     }
   }
-  return correctAnswer;
+  return result;
 };
 
-export const primeGame = () => {
-  const taskQuestion = numberGenerate();
-  const result = primeCheck(taskQuestion);
-  return [taskQuestion, result];
+export const generateRound = () => {
+  const question = generateNumber();
+  const answer = isPrime(question);
+  return [question, answer];
 };
+
+export default () => runEngine(gameDescription, generateRound);

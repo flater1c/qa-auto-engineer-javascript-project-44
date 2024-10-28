@@ -1,19 +1,22 @@
-import { numberGenerate } from '../index.js';
+import generateNumber from '../utils.js';
+import runEngine from '../index.js';
 
-export const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
+export const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const parityCheck = (number) => {
-  let correctAnswer;
+const isEven = (number) => {
+  let result;
   if (number % 2 === 0) {
-    correctAnswer = 'yes';
+    result = 'yes';
   } else {
-    correctAnswer = 'no';
+    result = 'no';
   }
-  return correctAnswer;
+  return result;
 };
 
-export const evenGame = () => {
-  const taskQuestion = numberGenerate();
-  const result = parityCheck(taskQuestion);
-  return [taskQuestion, result];
+export const generateRound = () => {
+  const question = generateNumber();
+  const answer = isEven(question);
+  return [question, answer];
 };
+
+export default () => runEngine(gameDescription, generateRound);

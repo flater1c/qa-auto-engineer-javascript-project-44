@@ -7,22 +7,6 @@ export const greeting = () => {
   return name;
 };
 
-export const congratulations = (username) => {
-  console.log(`Congratulations, ${username}!`);
-};
-
-export const correctMessage = () => {
-  console.log('Correct!');
-};
-
-export const incorrectMessage = (userAnswer, correctAnswer, userName) => {
-  console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\n Let's try again, ${userName}!`);
-};
-
-export const answerCheck = (userAnswer, correctAnswer) => (userAnswer === correctAnswer);
-
-export const numberGenerate = () => Math.floor(Math.random() * 100);
-
 export const stringAnswer = () => readlineSync.question('Your answer: ');
 
 export default (gameQuestion, taskData) => {
@@ -33,13 +17,13 @@ export default (gameQuestion, taskData) => {
     const [taskQuestion, result] = taskData();
     console.log(`Question: ${taskQuestion}`);
     const userAnswer = stringAnswer();
-    if (answerCheck(userAnswer, result)) {
-      correctMessage();
+    if (userAnswer === result) {
+      console.log('Correct!');
       i += 1;
     } else {
-      incorrectMessage(userAnswer, result, userName);
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${result}.\n Let's try again, ${userName}!`);
       return;
     }
   }
-  congratulations(userName);
+  console.log(`Congratulations, ${userName}!`);
 };
